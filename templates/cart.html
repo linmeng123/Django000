@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="img/icon/favicon.ico" type="image/x-icon" />
+		<title>购物车</title>
+		<meta name="keywords" content="达令，达令™，鹿晗，海淘，礼物店，跨境购，全球购，跨境电商，海外直邮，达令礼物店，达令APP，达令官网" />
+		<meta name="description" content="达令™一首全球好货，每天甄选高品质时尚潮货，进口零食，美妆，创意生活用品，潮流买手带您跨境全球购，达令APP教您神马值得买.鹿晗投资，品牌授权，海关监督，免税直邮.Darling爱达令！" />
+		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+		<link rel="stylesheet" type="text/css" href="css/cart.css"/>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-con">
+				<a href="#">消费者告知书</a>
+				<div class="user-login">
+					<a href="login.html">登录</a>
+					<span class="line">|</span>
+					<a href="login.html">注册
+						<div class="reg_tip">
+							<a class="tip_close">×</a>
+						</div>
+					</a>
+					<span class="line">|</span>
+					<span><span class="phone"></span>400-080-1888</span>
+					<span class="line">|</span>
+					<a href="#">下载达令app</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="da_cart ready">
+			<div class="cart_top">
+				<a class="logo" href="index.html"></a>
+				<div class="cart_step">
+					<ul>
+						<li class="step1 curr">
+							<span class="striange"></span>
+							<span class="icon_num">1</span>
+							查看购物车
+						</li>
+						<li class="step2">
+							<span class="icon_num">2</span>
+							确认订单信息
+							<span class="icon_to"></span>
+						</li>
+						<li class="step3">
+							<span class=" icon_num">3</span>
+							成功提交订单
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="cart_table">
+				<div class="cart_thead">
+					<ul>
+						<li class="th th_check">
+							<label>
+								<input class="check" type="checkbox" />
+								全选
+							</label>
+						</li>
+						<li class="th th_name"> 商品名称 </li>
+						<li class="th th_price"> 单价（元） </li>
+						<li class="th th_number"> 数量 </li>
+						<li class="th th_total"> 小计（元） </li>
+						<li class="th th_handle"> 操作 </li>
+					</ul>
+				</div>
+				<table class="data_empty" cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<td>
+								<strong></strong>
+								<span>
+									购物车空空的哦~，去看看心仪的商品吧~<br />
+									<a href="index.html">去购物></a>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="cart_list">
+					<ul>
+						<li class="th th_check">
+							<input class="check" type="checkbox" />
+						</li>
+						<li class="th th_goods">
+							<img src="img/product/data_sale/1448013899338.jpg" />
+							<a href="detail.html" target="_blank" >sfsdfsf</a>
+						</li>
+						<li class="th th_price">
+							<p>
+								￥
+								<span class="de_price">222</span>
+							</p>
+						</li>
+						<li class="th th_number">
+							<div>
+								<a class="btn_number f1 reduce">
+									<span class="ico_re"></span>
+								</a>
+								<input type="text" value="1" class="num_in" />
+								<a class="btn_number f1 btn_a">
+									<span class="ico_add"></span>
+								</a>
+							</div>
+						</li>
+						<li class="th th_total">
+							￥
+							<span class="total">333</span>
+						</li>
+						<li class="th th_handle">
+							<a>刪除</a><br />
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="total_box">
+				<label class="sel_all">
+					<input type="checkbox" />
+					全选
+				</label>
+				<div class="option">
+					<a class="dele_goods">删除选中的商品</a>
+					<a class="add_to_coll">移到我的收藏</a>
+				</div>
+				
+				<div class="toolbar">
+					<a class="btn_count">去结算</a>
+					<div class="total_count">
+						<p>
+							<span class="total_item">总金额：</span>
+							<span class="sum_price redel">
+								￥
+								<span class="f20">0.00</span>
+							</span>
+						</p>
+						<p>
+							<span class="total_item">已节省：</span>
+							-￥
+							<span>0.00</span>
+						</p>
+					</div>
+					<div class="ammount">
+						已选中
+						<span class="redel">0</span>
+						件商品
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<div class="assure">
+				<ul>
+					<li>为什么选择达令<span class="icon_arrow"></span></li>
+					<li>100多个品牌授权</li>	
+					<li>24小时内发货</li>
+					<li>保税区正品</li>
+				</ul>
+			</div>
+			<div class="investor">
+				<dl class="first">
+					<dt>投资人说达令</dt>
+					<dd>“hi，达令，我是鹿晗，达令投资人，投资比影响力更重要的是责任。”</dd>
+				</dl>
+				<dl class="second">
+					<dt>投资人说达令</dt>
+					<dd>“达令™一手全球好货——带您购全球！教您神马值得买”<br />连续两年荣获App store 编辑推荐最佳购物类应用！</dd>
+				</dl>
+			</div>
+			<div class="copy_right">
+				<p>
+					<a href="#">首页</a><span>|</span>
+					<a href="#">网站地图</a><span>|</span>
+					<a href="#">消费者告知书</a><span>|</span>
+					<a href="#">优惠券使用规则</a><span>|</span>
+					<a href="#">退换货说明</a><span>|</span>
+					<a href="#">关于我们</a><span>|</span>
+					<a href="#">联系我们</a>
+				</p>
+				<p>
+					北京普缇客科技有限公司
+					<a><img src="img/logo/cert.png"/></a>
+					<a><img src="img/logo/cnnic.png"/></a>
+					<img src="img/logo/ico_zfb.jpg"/>
+				</p>
+				<p>Copyright &copy; 2016达令 ， All Rights Reserved | 京ICP备14009583-1 | 京公网备11010502027399 | 食品流通许可证编号： SP1101051510323113</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,285 @@
+/*头部*/
+.login_banner{
+	width: 1200px;
+    margin: 0 auto;
+	padding: 20px 0;
+	overflow: hidden;
+}
+.logo{
+	float: left;
+	width: 280px;
+	height: 60px;
+	background: url(../img/logo/dlogo.png) no-repeat;
+}
+
+/*主体*/
+.login_bg{
+	background: #f9fbfd;
+	border-top: 1px solid #D8D8D8;
+}
+.login_index{
+	width: 1200px;
+	height: 660px;
+	margin: 0 auto;
+	background:  url(../img/brand/login_bg.png) 80px 40px no-repeat #F9FBFD;
+}
+.login_ct{
+	width: 390px;
+	height: 446px;
+	float: right;
+	border: 1px solid #E5E5E5;
+	background: #fff;
+	padding: 20px 30px;
+	margin-top: 45px;
+	margin-right: 80px;
+}
+.login_panel h2{
+	line-height: 30px;
+	border-left: 3px solid #7D589D;
+	font-size: 16px;
+	font-weight: 400;
+	text-indent: 10px;
+	margin-bottom: 24px;
+}
+.login_panel .tabs{
+	width: 282px;
+	border-bottom: 1px solid #7D589D;
+	padding: 0 36px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.login_panel .tabs a.active{
+	background: url(../img/brand/login_arr.png) 0 18px no-repeat;
+}
+.login_panel .tabs a{
+	display: block;
+	float: left;
+	width: 70px;
+	height: 28px;
+	text-align: center;
+	font-size: 16px;
+	margin-right: 36px;
+}
+.login_panel .tabs a:hover{
+	color: #666;
+	cursor: pointer;
+}
+
+/*登录列表*/
+.login_panel .login_form,
+.login_panel .register_form{
+	width: 320px;
+	margin: 40px 0 0 30px;
+	font-size: 15px;
+}
+.login_panel .register_form{
+	display: none;
+}
+form .ctrl{
+	position: relative;
+}
+.login_panel .login_form .ctrl,
+.login_panel .register_form .ctrl{
+	margin-bottom: 20px;
+}
+.login_sign{
+	width: 40px;
+	height: 38px;
+	display: block;
+	top: 1px;
+	left: 1px;
+	border-right: 1px solid #ccc;
+	position: absolute;
+}
+.login_panel .cuttent .login_sign{
+	border-right: 1px solid #94D469;
+}
+.cuttent input{
+	border: 1px solid #94D469 !important;
+}
+.icon_user{
+	background: url(../img/icon/ico-login.png) -29px 0 no-repeat;
+}
+.icon_pwd{
+	background: url(../img/icon/ico-login.png) -29px -27px no-repeat;
+}
+.login_sign .ico_msgcode{
+	background: url(../img/icon/ico-login.png) -29px -56px no-repeat;
+	height: 23px;
+}
+.icon_pwd,.icon_user,.ico_msgcode{
+	display: block;
+	vertical-align: middle;
+	width: 20px;
+	height: 19px;
+	margin: 10px 0 0 10px;
+}
+.login_panel .login_form input,
+.login_panel .register_form input{
+	width: 265px;
+	padding-left: 55px;
+	line-height: 38px;
+	border: 1px solid #ccc;
+}
+form .ctrl label.error{
+	position: absolute;
+	background: rgba(0,0,0,.75);
+	border-radius: 3px;
+	z-index: 10;
+	left: 6px;
+	line-height: 30px;
+    color: #fff;
+    padding: 0 10px;
+    bottom: -38px;
+    font-size: 12px!important;
+    display: none;
+}
+form .ctrl label.error:after{
+	left: 30px;
+	top: -5px;
+	height: 0;
+	position: absolute;
+	border: 5px solid transparent;
+	border-bottom-color: #000;
+	border-top-width: 0;
+	z-index: 20;
+	content: "";
+	opacity: 0.75;
+}
+.forgot{
+	font-size: 12px;
+	text-align: right;
+}
+.forgot a:hover{
+	color: #666;
+}
+.text_error{
+	color: #a00;
+	margin-top: 5px;
+}
+.submit-btn{
+	background: #E14958;
+	width: 320px;
+	height: 40px;
+	margin-top: 16px;
+	font-size: 15px;
+	font-weight: 700;
+	border: none;
+	color: #fff;
+}
+.submit-btn:hover{
+	cursor: pointer;
+}
+/*注册*/
+.captcha{
+	float: right;
+	width: 100px;
+	height: 28px;
+	margin-top: 7px;
+}
+.login_panel .register_form .verify,
+.login_panel .register_form .sms{
+	width: 145px;
+}
+.resent{
+	display: none;
+}
+.ctrl button{
+	float: right;
+	background: #94D469;
+	border: none;
+	width: 100px;
+	height: 28px;
+	padding: 0;
+	text-align: center;
+	font-size: 13px;
+	color: #fff;
+	margin-top: 7px;
+}
+.register_form .Agreement input{
+	display: inline;
+	width: auto;
+	position: relative;
+    top: 3px;
+}
+.Agreement a{
+	color: blue;
+}
+.register_form .Agreement{
+	font-size: 12px;
+}
+
+
+/*同意书*/
+.agreement{
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 200;
+}
+.mask{
+	background: #000 none repeat scroll 0 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.4;
+}
+.agreement_inner{
+	width: 600px;
+	height: 400px;
+	background: #fff none scroll repeat 0 0 ;
+	border: 2px solid #5C5C5C;
+	left: 50%;
+	padding: 20px 30px;
+	margin-left: -300px;
+	margin-top: -200px;
+	position: fixed;
+	top: 50%;
+	z-index: 202;
+}
+.agreement_tit{
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #aaa;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.agreement_tit em{
+	background: url(../img/icon/login-close.png) repeat scroll 0 0 ;
+	cursor: pointer;
+	display: block;
+	height: 16px;
+	width: 16px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.agreement_art{
+    height: 300px;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 15px;
+    overflow-y: auto;
+}
+.agreement_art .p1{
+	font-size: 16px;
+	margin: 16px 0 20px;
+}
+.btn_area{
+	padding-right: 20px;
+}
+.btn_sure{
+	display: block;
+	float: right;
+	width: 142px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	align-items: center;
+	background: #E14958;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}
