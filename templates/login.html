@@ -26,7 +26,8 @@
 							<a class="active">登录</a>
 							<a>注册</a>
 						</div>
-				            <form class="login_form">
+				            <form class="login_form" action="{% url 'app:login'%}" method="post">
+                                {% csrf_token %}
 					           	<div class="ctrl">
 					           		<span class="login_sign">
 					           			<span class="icon_user"></span>
@@ -45,9 +46,10 @@
 					           		<a>忘记密码？</a>
 					           	</p>
 					           	<p class="text_error"></p>
-					           	<button type="button" class="submit-btn">登录</button>
+					           	<button type="submit" class="submit-btn">登录</button>
 				           </form>
-				           <form class="register_form">
+				           <form class="register_form" action="{% url 'app:register' %}" method="post">
+                               {% csrf_token %}
 					           	<div class="ctrl">
 					           		<span class="login_sign">
 					           			<span class="icon_user"></span>
@@ -64,18 +66,18 @@
 					           			请输入正确的验证码
 					           		</label>
 					           	</div>
-					           	<div class="ctrl">
-					           		<span class="login_sign">
-					           			<span class="ico_msgcode"></span>
-					           		</span>
-					           		<input type="text" name="code" class="sms" placeholder="请输入短信验证码" />
-					           		<button type="button">获取验证码</button>
-					           		<button type="button" class="resent">
-					           			获取验证码(
-					           			<span class="timer"></span>
-					           			)
-					           		</button>
-					           	</div>
+{#					           	<div class="ctrl">#}
+{#					           		<span class="login_sign">#}
+{#					           			<span class="ico_msgcode"></span>#}
+{#					           		</span>#}
+{#					           		<input type="text" name="code" class="sms" placeholder="请输入短信验证码" />#}
+{#					           		<button type="button">获取验证码</button>#}
+{#					           		<button type="button" class="resent">#}
+{#					           			获取验证码(#}
+{#					           			<span class="timer"></span>#}
+{#					           			)#}
+{#					           		</button>#}
+{#					           	</div>#}
 					           	<div class="ctrl ctrl1">
 					           		<span class="login_sign">
 					           			<span class="icon_pwd"></span>
@@ -88,7 +90,7 @@
 					           		我已阅读并同意
 					           		<a href="">《达令用户注册协议》</a>
 					           	</div>
-					           	<button type="button" class="submit-btn">注册</button>
+					           	<button type="submit" class="submit-btn">注册</button>
 				           </form>
 					</div>
 				</div>

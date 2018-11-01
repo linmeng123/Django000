@@ -1,25 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="shortcut icon" href="img/icon/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="{% static 'img/icon/favicon.ico' %}" type="image/x-icon" />
 		<title>购物车</title>
 		<meta name="keywords" content="达令，达令™，鹿晗，海淘，礼物店，跨境购，全球购，跨境电商，海外直邮，达令礼物店，达令APP，达令官网" />
 		<meta name="description" content="达令™一首全球好货，每天甄选高品质时尚潮货，进口零食，美妆，创意生活用品，潮流买手带您跨境全球购，达令APP教您神马值得买.鹿晗投资，品牌授权，海关监督，免税直邮.Darling爱达令！" />
-		<link rel="stylesheet" type="text/css" href="css/css.css"/>
-		<link rel="stylesheet" type="text/css" href="css/cart.css"/>
-		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}"/>
+		<script src="{% static 'js/jquery-1.12.3.js' %}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/cart.js' %}" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="header">
 			<div class="header-con">
 				<a href="#">消费者告知书</a>
 				<div class="user-login">
-					<a href="login.html">登录</a>
-					<span class="line">|</span>
-					<a href="login.html">注册
+					{% if username %}&nbsp;
+                    <a href="#">欢迎您,{{ username }}</a>
+					<a href="{% url 'app:logout' %}">退出</a>
+                    {% else %}
+                    <a href="{% url 'app:login1' %}" class="main_login">登录</a>
+                    {% endif %}
+                    <span class="line">|</span>
+					<a href="{% url 'app:login1' %}">注册
 						<div class="reg_tip">
 							<a class="tip_close">×</a>
 						</div>
@@ -89,7 +95,7 @@
 							<input class="check" type="checkbox" />
 						</li>
 						<li class="th th_goods">
-							<img src="img/product/data_sale/1448013899338.jpg" />
+							<img src="{% static 'img/product/data_sale/1448013899338.jpg' %}" />
 							<a href="detail.html" target="_blank" >sfsdfsf</a>
 						</li>
 						<li class="th th_price">
@@ -185,9 +191,9 @@
 				</p>
 				<p>
 					北京普缇客科技有限公司
-					<a><img src="img/logo/cert.png"/></a>
-					<a><img src="img/logo/cnnic.png"/></a>
-					<img src="img/logo/ico_zfb.jpg"/>
+					<a><img src="{% static 'img/logo/cert.png' %}"/></a>
+					<a><img src="{% static 'img/logo/cnnic.png' %}"/></a>
+					<img src="{% static 'img/logo/ico_zfb.jpg' %}"/>
 				</p>
 				<p>Copyright &copy; 2016达令 ， All Rights Reserved | 京ICP备14009583-1 | 京公网备11010502027399 | 食品流通许可证编号： SP1101051510323113</p>
 			</div>

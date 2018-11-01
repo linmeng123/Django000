@@ -19,10 +19,14 @@
 			<div class="header-con">
 				<a href="#">消费者告知书</a>
 				<div class="user-login">
-					<a href="login.html" class="main_login">登录</a>&nbsp;
-					<a href="index.html" class="leave">退出</a>
+					{% if username %}&nbsp;
+                    <a href="#">欢迎您,{{ username }}</a>
+					<a href="{% url 'app:logout' %}">退出</a>
+                    {% else %}
+                    <a href="{% url 'app:login' %}" class="main_login">登录</a>
+                    {% endif %}
 					<span class="line">|</span>
-					<a href="login.html">注册
+					<a href="{% url 'app:login' %}">注册
 						<div class="reg_tip">
 							<a class="tip_close">×</a>
 						</div>
@@ -73,7 +77,7 @@
 					<div class="category">
 						<!--tab—切换  .cate_mist hover事件		.cate_detail 显示隐藏-->
 						<div class="cate_mist">
-							<h6><img src="img/icon/v.png"/>极致美护</h6>
+							<h6><img src="{% static 'img/icon/v.png' %}"/>极致美护</h6>
 							<div class="detail">
 								<a>面膜</a><a>化妆水</a><a>洁面</a><a>防晒</a><br />
 								<a>面霜/乳液</a><a>卸妆</a><a>精华</a>
@@ -82,10 +86,10 @@
 								<div class="cate_hot">
 									<h5>细致美护</h5>
 									<div class="cate_hotBrand">
-										<a><img src="img/logo/14618102858979.jpg"/></a>
-										<a><img src="img/logo/14618103017374.jpg"/></a>
-										<a><img src="img/logo/14618103181301.jpg"/></a>
-										<a><img src="img/logo/14618103749529.jpg"/></a>
+										<a><img src="{% static 'img/logo/14618102858979.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103017374.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103181301.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103749529.jpg' %}"/></a>
 									</div>
 								</div>
 								<div class="cate_all">
@@ -114,11 +118,11 @@
 										</div>
 									</div>
 								</div>
-								<img src="img/product/14660608498645.jpg"/>
+								<img src="{% static 'img/product/14660608498645.jpg' %}"/>
 							</div>
 						</div>
 						<div class="cate_mist">
-							<h6><img src="img/icon/1438769925573.png"/>全球零食</h6>
+							<h6><img src="{% static 'img/icon/1438769925573.png' %}"/>全球零食</h6>
 							<div class="detail">
 								<a>饼干</a><a>威化</a><a>蜂蜜</a><a>麦片</a><a>糖果</a><br />
 								<a>巧克力</a><a>膨化食品</a><a>咖啡</a>
@@ -127,10 +131,10 @@
 								<div class="cate_hot">
 									<h5>全球零食</h5>
 									<div class="cate_hotBrand">
-										<a><img src="img/logo/14618102858979.jpg"/></a>
-										<a><img src="img/logo/14618103017374.jpg"/></a>
-										<a><img src="img/logo/14618103181301.jpg"/></a>
-										<a><img src="img/logo/14618103749529.jpg"/></a>
+										<a><img src="{% static 'img/logo/14618102858979.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103017374.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103181301.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103749529.jpg' %}"/></a>
 									</div>
 								</div>
 								<div class="cate_all">
@@ -159,11 +163,11 @@
 										</div>
 									</div>
 								</div>
-								<img src="img/product/14660612076920.jpg"/>
+								<img src="{% static 'img/product/14660612076920.jpg' %}"/>
 							</div>
 						</div>
 						<div class="cate_mist">
-							<h6><img src="img/icon/14387700022379.png"/>创意生活</h6>
+							<h6><img src="{% static 'img/icon/14387700022379.png' %}"/>创意生活</h6>
 							<div class="detail">
 								<a>水杯/保温杯</a><a>随身小物件</a><br />
 								<a>玩偶</a><a>钥匙挂件</a><a>其他创意礼品</a>
@@ -172,10 +176,10 @@
 								<div class="cate_hot">
 									<h5>创意生活</h5>
 									<div class="cate_hotBrand">
-										<a><img src="img/logo/14618102858979.jpg"/></a>
-										<a><img src="img/logo/14618103017374.jpg"/></a>
-										<a><img src="img/logo/14618103181301.jpg"/></a>
-										<a><img src="img/logo/14618103749529.jpg"/></a>
+										<a><img src="{% static 'img/logo/14618102858979.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103017374.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103181301.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103749529.jpg' %}"/></a>
 									</div>
 								</div>
 								<div class="cate_all">
@@ -204,11 +208,11 @@
 										</div>
 									</div>
 								</div>
-								<img src="img/product/14660607985941.jpg"/>
+								<img src="{% static 'img/product/14660607985941.jpg' %}"/>
 							</div>
 						</div>
 						<div class="cate_mist">
-							<h6><img src="img/icon/14387700336975.png"/>时尚配饰</h6>
+							<h6><img src="{% static 'img/icon/14387700336975.png' %}"/>时尚配饰</h6>
 							<div class="detail last">
 								<a>奢侈品</a><a>配饰</a><a>箱包</a><a>项链</a><br />
 								<a>手链</a><a>耳饰</a><a>戒指</a><a>太阳镜</a>
@@ -217,10 +221,10 @@
 								<div class="cate_hot">
 									<h5>细致美护</h5>
 									<div class="cate_hotBrand">
-										<a><img src="img/logo/14618102858979.jpg"/></a>
-										<a><img src="img/logo/14618103017374.jpg"/></a>
-										<a><img src="img/logo/14618103181301.jpg"/></a>
-										<a><img src="img/logo/14618103749529.jpg"/></a>
+										<a><img src="{% static 'img/logo/14618102858979.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103017374.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103181301.jpg' %}"/></a>
+										<a><img src="{% static 'img/logo/14618103749529.jpg' %}"/></a>
 									</div>
 								</div>
 								<div class="cate_all">
@@ -249,7 +253,7 @@
 										</div>
 									</div>
 								</div>
-								<img src="img/product/14660608818951.jpg"/>
+								<img src="{% static 'img/product/14660608818951.jpg' %}"/>
 							</div>
 						</div>
 					</div>
@@ -299,7 +303,7 @@
 							<div class="move_box"></div>
 						</div>
 						<div class="detail_big">
-							<img src="img/product/allpeople/FA163E0C4D3EG6FK2HE0Q8NDS4D.jpg" class="big_img" />
+							<img src="{% static 'img/product/allpeople/FA163E0C4D3EG6FK2HE0Q8NDS4D.jpg' %}" class="big_img" />
 						</div>
 					</div>
 					<div class="detail_share">
@@ -406,9 +410,9 @@
 				</p>
 				<p>
 					北京普缇客科技有限公司
-					<a><img src="img/logo/cert.png"/></a>
-					<a><img src="img/logo/cnnic.png"/></a>
-					<img src="img/logo/ico_zfb.jpg"/>
+					<a><img src="{% static 'img/logo/cert.png' %}"/></a>
+					<a><img src="{% static 'img/logo/cnnic.png' %}"/></a>
+					<img src="{% static 'img/logo/ico_zfb.jpg' %}"/>
 				</p>
 				<p>Copyright &copy; 2016达令 ， All Rights Reserved | 京ICP备14009583-1 | 京公网备11010502027399 | 食品流通许可证编号： SP1101051510323113</p>
 			</div>

@@ -7,21 +7,31 @@
 		<meta name="keywords" content="达令，达令™，鹿晗，海淘，礼物店，跨境购，全球购，跨境电商，海外直邮，达令礼物店，达令APP，达令官网" />
 		<meta name="description" content="达令™一首全球好货，每天甄选高品质时尚潮货，进口零食，美妆，创意生活用品，潮流买手带您跨境全球购，达令APP教您神马值得买.鹿晗投资，品牌授权，海关监督，免税直邮.Darling爱达令！" />
 		<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/add.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/swiper-3.4.2.min.css' %}"/>
+
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		<script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
+{#		<script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>#}
 {#		<script src="{% static 'js/jquery.fly.min.js' %}" type="text/javascript" charset="utf-8"></script>#}
 		<script src="{% static 'js/index.js' %}" type="text/javascript" charset="utf-8"></script>
         <script src="{% static 'js/text.js' %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static 'js/add.js' %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static 'js/swiper-3.4.2.min.js' %}" type="text/javascript" charset="utf-8"></script>
+
 	</head>
 	<body>
 		<div class="header">
 			<div class="header-con">
 				<a href="#">消费者告知书</a>
 				<div class="user-login">
-					<a href="{% url 'app:login' %}" class="main_login">登录</a>&nbsp;
-					<a href="index.html" class="leave" style="display: none;">退出</a>
+                    {% if username %}&nbsp;
+                    <a href="#">欢迎您,{{ username }}</a>
+					<a href="{% url 'app:logout' %}">退出</a>
+                    {% else %}
+                    <a href="{% url 'app:login' %}" class="main_login">登录</a>
+                    {% endif %}
 					<span class="line">|</span>
-					<a href="login.html">注册
+					<a href="{% url 'app:login' %}">注册
 						</a><div class="reg_tip"><a href="login.html">
 							</a><a class="tip_close">×</a>
 						</div>
@@ -267,13 +277,27 @@
 				</ul>
 			</div>
 		</div>
+        <div class="slider">
+			  <div class="swiper-container">
+              <div class="swiper-wrapper">
+                  {% for slideer in slideers %}
 
-		<div class="slider">
-			<ul class="slider_li">
-			</ul>
-			<ol class="slider_dot">
-			</ol>
-		</div>
+                  <div class="swiper-slide"><img src="{% static slideer.url %}"></div>
+                  {% endfor %}
+{#            <div class="swiper-slide">Slide 2</div>#}
+{#            <div class="swiper-slide">Slide 3</div>#}
+{#            <div class="swiper-slide">Slide 4</div>#}
+{#            <div class="swiper-slide">Slide 5</div>#}
+{#            <div class="swiper-slide">Slide 6</div>#}
+{#            <div class="swiper-slide">Slide 7</div>#}
+{#            <div class="swiper-slide">Slide 8</div>#}
+{#            <div class="swiper-slide">Slide 9</div>#}
+{#            <div class="swiper-slide">Slide 10</div>#}
+            </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+            </div>
+        </div>
 
 		<div class="silder_bar">
 			<div class="sidebar_cart">
@@ -321,9 +345,10 @@
 				<!--今日上新-->
 				<h2><span class="h2_icon  new"></span>今日上新<span class="h2_second">早八点上新</span></h2>
 				<ul class="new_four">
+                    {% for jsons in json_list %}
 					<li>
 						<a href="" class="new_img four">
-							<img class="good_img" src="{% static 'undefined' %}">
+							<img class="good_img" src="{% static jsons.src %}">
 							<div class="add_cart" style="display: none;">
 								加入购物车
 								<span class="icon_cart"></span>
@@ -332,117 +357,118 @@
 						<div class="new_data_four">
 							<p class="new_price">
 								<span class="rede1">￥</span>
-								<span class="now_price">2</span>
-								<span class="old_price">2</span>
+								<span class="now_price">{{ jsons.now_price }}</span>
+								<span class="old_price">{{ jsons.old_price }}</span>
 							</p>
 							<p class="new_tit">
-								<span class="discount">6折/</span>
-								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>
+								<span class="discount">{{ jsons.discount }}/</span>
+								<a href="#">{{ jsons.title }}</a>
 							</p>
 						</div>
 					</li>
-					<li>
-						<a href="#" class="new_img four">
-							<img class="good_img" src="{% static 'undefined' %}">
-							<div class="add_cart" style="display: none;">
-								加入购物车
-								<span class="icon_cart"></span>
-							</div>
-						</a>
-						<div class="new_data_four">
-							<p class="new_price">
-								<span class="rede1">￥</span>
-								<span class="now_price">2</span>
-								<span class="old_price">2</span>
-							</p>
-							<p class="new_tit">
-								<span class="discount">6折/</span>
-								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>
-							</p>
-						</div>
-					</li>
-					<li>
-						<a href="#" class="new_img four">
-							<img class="good_img" src="{% static 'undefined' %}">
-							<div class="add_cart" style="display: none;">
-								加入购物车
-								<span class="icon_cart"></span>
-							</div>
-						</a>
-						<div class="new_data_four">
-							<p class="new_price">
-								<span class="rede1">￥</span>
-								<span class="now_price">2</span>
-								<span class="old_price">2</span>
-							</p>
-							<p class="new_tit">
-								<span class="discount">6折/</span>
-								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>
-							</p>
-						</div>
-					</li>
-					<li>
-						<a href="#" class="new_img">
-							<img class="good_img" src="{% static 'undefined' %}">
-							<div class="add_cart" style="display: none;">
-								加入购物车
-								<span class="icon_cart"></span>
-							</div>
-						</a>
-						<div class="new_data_four">
-							<p class="new_price">
-								<span class="rede1">￥</span>
-								<span class="now_price">2</span>
-								<span class="old_price">2</span>
-							</p>
-							<p class="new_tit">
-								<span class="discount">6折/</span>
-								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>
-							</p>
-						</div>
-					</li>
-				</ul>
-				<ul class="new_two">
-					<li>
-						<a href="#" class="new_img two">
-							<img class="good_img" src="{% static 'undefined' %}">
-							<div class="add_cart" style="display: none;">
-								加入购物车
-								<span class="icon_cart"></span>
-							</div>
-						</a>
-						<div class="new_data_two">
-							<p class="new_price">
-								<span class="rede1">￥</span>
-								<span class="now_price">2</span>
-								<span class="old_price">2</span>
-							</p>
-							<p class="new_tit">
-								<span class="discount">6折/</span>
-								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>
-							</p>
-						</div>
-					</li>
-					<li>
-						<a href="#" class="new_img two">
-							<img class="good_img" src="{% static 'undefined' %}">
-							<div class="add_cart" style="display: none;">
-								加入购物车
-								<span class="icon_cart"></span>
-							</div>
-						</a>
-						<div class="new_data_two">
-							<p class="new_price">
-								<span class="rede1">￥</span>
-								<span class="now_price">2</span>
-								<span class="old_price">2</span>
-							</p>
-							<p class="new_tit">
-								<span class="discount">6折/</span>
-								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>
-							</p>
-						</div>
-					</li>
+                    {% endfor %}
+{#					<li>#}
+{#						<a href="#" class="new_img four">#}
+{#							<img class="good_img" src="{% static 'undefined' %}">#}
+{#							<div class="add_cart" style="display: none;">#}
+{#								加入购物车#}
+{#								<span class="icon_cart"></span>#}
+{#							</div>#}
+{#						</a>#}
+{#						<div class="new_data_four">#}
+{#							<p class="new_price">#}
+{#								<span class="rede1">￥</span>#}
+{#								<span class="now_price">2</span>#}
+{#								<span class="old_price">2</span>#}
+{#							</p>#}
+{#							<p class="new_tit">#}
+{#								<span class="discount">6折/</span>#}
+{#								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>#}
+{#							</p>#}
+{#						</div>#}
+{#					</li>#}
+{#					<li>#}
+{#						<a href="#" class="new_img four">#}
+{#							<img class="good_img" src="{% static 'undefined' %}">#}
+{#							<div class="add_cart" style="display: none;">#}
+{#								加入购物车#}
+{#								<span class="icon_cart"></span>#}
+{#							</div>#}
+{#						</a>#}
+{#						<div class="new_data_four">#}
+{#							<p class="new_price">#}
+{#								<span class="rede1">￥</span>#}
+{#								<span class="now_price">2</span>#}
+{#								<span class="old_price">2</span>#}
+{#							</p>#}
+{#							<p class="new_tit">#}
+{#								<span class="discount">6折/</span>#}
+{#								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>#}
+{#							</p>#}
+{#						</div>#}
+{#					</li>#}
+{#					<li>#}
+{#						<a href="#" class="new_img">#}
+{#							<img class="good_img" src="{% static 'undefined' %}">#}
+{#							<div class="add_cart" style="display: none;">#}
+{#								加入购物车#}
+{#								<span class="icon_cart"></span>#}
+{#							</div>#}
+{#						</a>#}
+{#						<div class="new_data_four">#}
+{#							<p class="new_price">#}
+{#								<span class="rede1">￥</span>#}
+{#								<span class="now_price">2</span>#}
+{#								<span class="old_price">2</span>#}
+{#							</p>#}
+{#							<p class="new_tit">#}
+{#								<span class="discount">6折/</span>#}
+{#								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>#}
+{#							</p>#}
+{#						</div>#}
+{#					</li>#}
+{#				</ul>#}
+{#				<ul class="new_two">#}
+{#					<li>#}
+{#						<a href="#" class="new_img two">#}
+{#							<img class="good_img" src="{% static 'undefined' %}">#}
+{#							<div class="add_cart" style="display: none;">#}
+{#								加入购物车#}
+{#								<span class="icon_cart"></span>#}
+{#							</div>#}
+{#						</a>#}
+{#						<div class="new_data_two">#}
+{#							<p class="new_price">#}
+{#								<span class="rede1">￥</span>#}
+{#								<span class="now_price">2</span>#}
+{#								<span class="old_price">2</span>#}
+{#							</p>#}
+{#							<p class="new_tit">#}
+{#								<span class="discount">6折/</span>#}
+{#								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>#}
+{#							</p>#}
+{#						</div>#}
+{#					</li>#}
+{#					<li>#}
+{#						<a href="#" class="new_img two">#}
+{#							<img class="good_img" src="{% static 'undefined' %}">#}
+{#							<div class="add_cart" style="display: none;">#}
+{#								加入购物车#}
+{#								<span class="icon_cart"></span>#}
+{#							</div>#}
+{#						</a>#}
+{#						<div class="new_data_two">#}
+{#							<p class="new_price">#}
+{#								<span class="rede1">￥</span>#}
+{#								<span class="now_price">2</span>#}
+{#								<span class="old_price">2</span>#}
+{#							</p>#}
+{#							<p class="new_tit">#}
+{#								<span class="discount">6折/</span>#}
+{#								<a href="#">人迷人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷人迷魅唇人迷魅唇人迷魅唇魅唇人迷魅唇人迷魅唇人迷魅唇魅唇</a>#}
+{#							</p>#}
+{#						</div>#}
+{#					</li>#}
 				</ul>
 
 				<!--神马值得买-->
@@ -2633,5 +2659,8 @@
 			</div>
 		</div>
 		<script src="{% static 'js/jquery-3.3.1.js' %}" type="text/javascript" charset="utf-8"></script>
+		 <script src="{% static 'js/add.js' %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static 'js/swiper-3.4.2.min.js' %}" type="text/javascript" charset="utf-8"></script>
+
 	</body>
 </html>
