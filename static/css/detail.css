@@ -67,8 +67,12 @@
 	z-index: 20;
 }
 .detail_info .detail_small{
-	background: url(../img/product/allpeople/FA163E0C4D3EG6FK2HE0Q8NDS4D.jpg) no-repeat;
-	background-size: contain ;
+	background: no-repeat ;
+	background-size: 402px 400px;
+	/*background-size: contain ;*/
+	width: 100%;
+
+
 }
 .detail_info .detail_big{
 	display: none;

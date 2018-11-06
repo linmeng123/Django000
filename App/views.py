@@ -175,5 +175,9 @@ def register1(request):
 #     return render(request,'json.html')
 
 
-def detail(request):
-    return render(request,'detail.html')
+def detail(request,id):
+    jsoner = Jsons.objects.get(id=id)
+    data = {
+        'jsoner':jsoner
+    }
+    return render(request,'detail.html',context=data)

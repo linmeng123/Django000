@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'css/swiper-3.4.2.min.css' %}"/>
 
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-{#		<script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>#}
+		<script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
 {#		<script src="{% static 'js/jquery.fly.min.js' %}" type="text/javascript" charset="utf-8"></script>#}
 		<script src="{% static 'js/index.js' %}" type="text/javascript" charset="utf-8"></script>
         <script src="{% static 'js/text.js' %}" type="text/javascript" charset="utf-8"></script>
@@ -337,17 +337,18 @@
 					<p>发现·好货</p>
 				</div>
 				<!--今日必看-->
-				<h2><span class="h2_icon look"></span>今日必看<span class="h2_second">每天一圈</span></h2>
+				<h2><span class="h2_icon look"></span>商品详情展示<span class="h2_second">今日必看</span></h2>
 				<div class="look">
-					<img src="{% static 'img/brand/14736801517598.jpg' %}">
-					<img src="{% static 'img/brand/14736803626862.jpg' %}">
+                    <a href="#"><img src="{% static 'img/brand/14736801517598.jpg' %}"></a>
+                    <a href="#"><img src="{% static 'img/brand/14736803626862.jpg' %}"></a>
+
 				</div>
 				<!--今日上新-->
-				<h2><span class="h2_icon  new"></span>今日上新<span class="h2_second">早八点上新</span></h2>
+				<h2><span class="h2_icon  new"></span>商品详情展示<span class="h2_second">今日上新</span></h2>
 				<ul class="new_four">
                     {% for jsons in json_list %}
 					<li>
-						<a href="" class="new_img four">
+						<a href="{% url 'app:detail' jsons.id %}" class="new_img four">
 							<img class="good_img" src="{% static jsons.src %}">
 							<div class="add_cart" style="display: none;">
 								加入购物车
@@ -361,8 +362,8 @@
 								<span class="old_price">{{ jsons.old_price }}</span>
 							</p>
 							<p class="new_tit">
-								<span class="discount">{{ jsons.discount }}/</span>
-								<a href="#">{{ jsons.title }}</a>
+								<span class="discount"></span>
+								<a href="{% url 'app:detail' jsons.id %}">{{ jsons.title }}</a>
 							</p>
 						</div>
 					</li>

@@ -25,21 +25,21 @@ $(function(){
 	
 	
 	//加載產品信息
-	var goodsSrc = $.cookie("goods");
-	$.getJSON("jsonp/goods.json",function(data){
-		for(var i = 0; i < data.length; i++){
-			var info = data[i];
-			if(info.src == goodsSrc){
-				$(".detail_small").css({"background": "url(" + goodsSrc + ") no-repeat center center", "background-size": "cover"});
-				$(".big_img").attr("src",goodsSrc);
-				$(".goods_info h1").html(info.title);
-				$(".de_new_price strong").html(info.now_price);
-				$("#old_price").html(info.old_price);
-				$(".price_off").html(info.discount);
-				break;
-			}
-		}
-	})
+	// var goodsSrc = $.cookie("goods");
+	// $.getJSON("jsonp/goods.json",function(data){
+	// 	for(var i = 0; i < data.length; i++){
+	// 		var info = data[i];
+	// 		if(info.src == goodsSrc){
+	// 			$(".detail_small").css({"background": "url(" + goodsSrc + ") no-repeat center center", "background-size": "cover"});
+	// 			$(".big_img").attr("src",goodsSrc);
+	// 			$(".goods_info h1").html(info.title);
+	// 			$(".de_new_price strong").html(info.now_price);
+	// 			$("#old_price").html(info.old_price);
+	// 			$(".price_off").html(info.discount);
+	// 			break;
+	// 		}
+	// 	}
+	// })
 	
 	//數量加減
 	var num_add = $(".btn_add");

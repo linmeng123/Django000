@@ -12,7 +12,7 @@
 		<script src="{% static 'js/jquery-1.12.3.js' %}" type="text/javascript" charset="utf-8"></script>
 		<script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
 		<script src="{% static 'js/detail.js' %}" type="text/javascript" charset="utf-8"></script>
-        <script src="{% static 'js/text.js' %}" type="text/javascript" charset="utf-8"></script>
+{#        <script src="{% static 'js/text.js' %}" type="text/javascript" charset="utf-8"></script>#}
 	</head>
 	<body>
 		<div class="header">
@@ -299,11 +299,11 @@
 			<div class="detail_info">
 				<div class="img_info">
 					<div class="goods_show">
-						<div class="detail_small">
+						<div class="detail_small" style="background-image: url('{% static jsoner.src %}') ">
 							<div class="move_box"></div>
 						</div>
 						<div class="detail_big">
-							<img src="{% static 'img/product/allpeople/FA163E0C4D3EG6FK2HE0Q8NDS4D.jpg' %}" class="big_img" />
+							<img src="{% static jsoner.src %}" class="big_img" />
 						</div>
 					</div>
 					<div class="detail_share">
@@ -322,18 +322,18 @@
 					</div>
 				</div>
 				<div class="goods_info">
-					<h1>资生堂 肌水 肌肤滋润露400ml</h1>
+					<h1>{{ jsoner.title }}</h1>
 					<dl class="detail_price">
 						<dt> 达令价 </dt>
 						<dd>
 							<div class="de_new_price">
 								￥
-								<strong>48.00</strong>
+								<strong>{{ jsoner.now_price }}</strong>
 							</div>
 							<p>
 								海外限时售价
-								<span id="old_price">￥50.00</span>
-								<span class="price_off">9.6折</span>
+								<span id="old_price">￥{{ jsoner.old_price }}</span>
+								<span class="price_off">{{ jsoner.discount }}</span>
 							</p>
 						</dd>
 					</dl>
