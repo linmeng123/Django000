@@ -9,8 +9,11 @@
 		<meta name="description" content="达令™一首全球好货，每天甄选高品质时尚潮货，进口零食，美妆，创意生活用品，潮流买手带您跨境全球购，达令APP教您神马值得买.鹿晗投资，品牌授权，海关监督，免税直邮.Darling爱达令！" />
 		<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}"/>
+{#        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstarp/bootstrap.css' %}"/>#}
+
 		<script src="{% static 'js/jquery-1.12.3.js' %}" type="text/javascript" charset="utf-8"></script>
 		<script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
+
 		<script src="{% static 'js/cart.js' %}" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
@@ -20,7 +23,7 @@
 				<div class="user-login">
 					{% if username %}&nbsp;
                     <a href="#">欢迎您,{{ username }}</a>
-					<a href="{% url 'app:logout' %}">退出</a>
+
                     {% else %}
                     <a href="{% url 'app:login1' %}" class="main_login">登录</a>
                     {% endif %}
@@ -60,12 +63,13 @@
 					</ul>
 				</div>
 			</div>
-			<div class="cart_table">
+			<div class="cart_table" style="height: 100%">
 				<div class="cart_thead">
 					<ul>
-						<li class="th th_check">
+						<li class="th th_check"  >
 							<label>
-								<input class="check" type="checkbox" />
+								<input class="check" type="checkbox" id="check"  />
+{#                                <span class="no"></span>#}
 								全选
 							</label>
 						</li>
@@ -76,55 +80,63 @@
 						<li class="th th_handle"> 操作 </li>
 					</ul>
 				</div>
-				<table class="data_empty" cellspacing="0" cellpadding="0">
-					<tbody>
-						<tr>
-							<td>
-								<strong></strong>
-								<span>
-									购物车空空的哦~，去看看心仪的商品吧~<br />
-									<a href="index.html">去购物></a>
-								</span>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+            </div>
+{#				<table class="data_empty" cellspacing="0" cellpadding="0">#}
+{#					<tbody>#}
+{#						<tr>#}
+{#							<td>#}
+{#								<strong></strong>#}
+{#								<span>#}
+{#									购物车空空的哦~，去看看心仪的商品吧~<br />#}
+{#									<a href="index.html">去购物></a>#}
+{#								</span>#}
+{#							</td>#}
+{#						</tr>#}
+{#					</tbody>#}
+{#				</table>#}
+                {% for cart in carts %}
 				<div class="cart_list">
-					<ul>
+					<ul class="each">
 						<li class="th th_check">
-							<input class="check" type="checkbox" />
+                            {% if cart.isselect %}
+                               <input class="check" type="checkbox" id="checker" goodsid="{{ cart.goods.id }}" checked="checked"/>
+                            {% else %}
+                                <input class="check" type="checkbox" id="checker" goodsid="{{ cart.goods.id }}"/>
+                            {% endif %}
+
 						</li>
 						<li class="th th_goods">
-							<img src="{% static 'img/product/data_sale/1448013899338.jpg' %}" />
-							<a href="detail.html" target="_blank" >sfsdfsf</a>
+							<img src="{% static cart.goods.src %}" />
+							<a href="" target="_blank" >{{ cart.goods.title }}</a>
 						</li>
 						<li class="th th_price">
 							<p>
 								￥
-								<span class="de_price">222</span>
+								<span class="de_price">{{ cart.goods.now_price }}</span>
 							</p>
 						</li>
 						<li class="th th_number">
 							<div>
 								<a class="btn_number f1 reduce">
-									<span class="ico_re"></span>
+									<span class="ico_re" goodsid="{{ cart.goods.id }}" price="{{ cart.goods.now_price }}"></span>
 								</a>
-								<input type="text" value="1" class="num_in" />
+								<input type="text" value="{{ cart.number }}" class="num_in" />
 								<a class="btn_number f1 btn_a">
-									<span class="ico_add"></span>
+									<span class="ico_add" goodsid="{{ cart.goods.id }}" price="{{ cart.goods.now_price }}"></span>
 								</a>
 							</div>
 						</li>
 						<li class="th th_total">
 							￥
-							<span class="total">333</span>
+							<span class="total"></span>
 						</li>
 						<li class="th th_handle">
-							<a>刪除</a><br />
+							<a class="del_the" goodsid="{{ cart.goods.id }}">刪除</a><br />
 						</li>
 					</ul>
 				</div>
-			</div>
+
+            {% endfor %}
 			<div class="total_box">
 				<label class="sel_all">
 					<input type="checkbox" />
@@ -198,5 +210,6 @@
 				<p>Copyright &copy; 2016达令 ， All Rights Reserved | 京ICP备14009583-1 | 京公网备11010502027399 | 食品流通许可证编号： SP1101051510323113</p>
 			</div>
 		</div>
+
 	</body>
 </html>
